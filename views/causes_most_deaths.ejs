@@ -1,0 +1,28 @@
+<!-- File: views/causes_most_deaths.ejs -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Loads the Chart.js library from a CDN to create charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <!-- Brief description of the page -->
+    <p>A bar chart showing the causes of death, categorized by binary feature values (0 and 1).</p>
+
+    <ul class="back-button">
+        <li><a href="/">← Back</a></li>
+    </ul>
+    
+    <!-- Creates a canvas element where the chart will be rendered; sets its width & height -->
+    <canvas id="causesMostDeathsChart" style="width:195px;height:70px;"></canvas> 
+     
+    <!-- Links to the external JavaScript file to add functionality and handle the chart rendering -->
+    <script src="/scripts/charts.js"></script> 
+</body>
+</html>

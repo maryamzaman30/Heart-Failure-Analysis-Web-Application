@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <!-- Brief description of the page -->
+    <p>Overall statistics on health records, including average age, death rate, creatinine levels and more. It also shows statistics for different age groups, highlighting the total records, total deaths and death rates for each group.</p>
+
+    <ul class="back-button">
+        <li><a href="/">← Back</a></li>
+    </ul>
+    
+    <h2>Overall Statistics</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Statistic</th> <!-- Column header for the statistic name -->
+                <th>Value</th>     <!-- Column header for the value of the statistic -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Each row represents a different overall statistic -->
+            <tr>
+                <td>Average Age</td> <!-- Statistic name -->
+                <td>
+                    <!-- Display average age if valid, otherwise show 'N/A' -->
+                    <%= (typeof stats.avg_age === 'number' && !isNaN(stats.avg_age)) ? stats.avg_age.toFixed(2) : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Minimum Age</td>
+                <td><%= stats.min_age ?? 'N/A' %></td> <!-- Display minimum age or 'N/A' -->
+            </tr>
+            <tr>
+                <td>Maximum Age</td>
+                <td><%= stats.max_age ?? 'N/A' %></td> <!-- Display maximum age or 'N/A' -->
+            </tr>
+            <tr>
+                <td>Total Records</td>
+                <td><%= stats.total_records ?? 'N/A' %></td> <!-- Display total number of records -->
+            </tr>
+            <tr>
+                <td>Average Death Rate</td>
+                <td>
+                    <!-- Display the average death rate as a percentage, or 'N/A' if invalid -->
+                    <%= (typeof stats.avg_death_rate === 'number' && !isNaN(stats.avg_death_rate)) 
+                        ? (stats.avg_death_rate * 100).toFixed(2) + '%' 
+                        : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Highest Death Rate</td>
+                <td>
+                    <!-- Display the highest death rate as a percentage, or 'N/A' if invalid -->
+                    <%= (typeof stats.max_death_rate === 'number' && !isNaN(stats.max_death_rate)) 
+                        ? (stats.max_death_rate * 100).toFixed(2) + '%' 
+                        : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Lowest Death Rate</td>
+                <td>
+                    <!-- Display the lowest death rate as a percentage, or 'N/A' if invalid -->
+                    <%= (typeof stats.min_death_rate === 'number' && !isNaN(stats.min_death_rate)) 
+                        ? (stats.min_death_rate * 100).toFixed(2) + '%' 
+                        : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Total Deaths</td>
+                <td><%= stats.total_deaths ?? 'N/A' %></td> <!-- Display total number of deaths -->
+            </tr>
+            <tr>
+                <td>Average Creatinine Phosphokinase</td>
+                <td>
+                    <!-- Display average creatinine phosphokinase if valid, otherwise 'N/A' -->
+                    <%= (typeof stats.avg_creatinine_phosphokinase === 'number' && !isNaN(stats.avg_creatinine_phosphokinase)) 
+                        ? stats.avg_creatinine_phosphokinase.toFixed(2) 
+                        : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Minimum Creatinine Phosphokinase</td>
+                <td><%= stats.min_creatinine_phosphokinase ?? 'N/A' %></td> <!-- Display min value -->
+            </tr>
+            <tr>
+                <td>Maximum Creatinine Phosphokinase</td>
+                <td><%= stats.max_creatinine_phosphokinase ?? 'N/A' %></td> <!-- Display max value -->
+            </tr>
+            <tr>
+                <td>Average Ejection Fraction</td>
+                <td>
+                    <!-- Display average ejection fraction if valid, otherwise 'N/A' -->
+                    <%= (typeof stats.avg_ejection_fraction === 'number' && !isNaN(stats.avg_ejection_fraction)) 
+                        ? stats.avg_ejection_fraction.toFixed(2) 
+                        : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Minimum Ejection Fraction</td>
+                <td><%= stats.min_ejection_fraction ?? 'N/A' %></td> <!-- Display min value -->
+            </tr>
+            <tr>
+                <td>Maximum Ejection Fraction</td>
+                <td><%= stats.max_ejection_fraction ?? 'N/A' %></td> <!-- Display max value -->
+            </tr>
+            <tr>
+                <td>Average Serum Creatinine</td>
+                <td>
+                    <!-- Display average serum creatinine if valid, otherwise 'N/A' -->
+                    <%= (typeof stats.avg_serum_creatinine === 'number' && !isNaN(stats.avg_serum_creatinine)) 
+                        ? stats.avg_serum_creatinine.toFixed(2) 
+                        : 'N/A' %>
+                </td>
+            </tr>
+            <tr>
+                <td>Minimum Serum Creatinine</td>
+                <td><%= stats.min_serum_creatinine ?? 'N/A' %></td> <!-- Display min value -->
+            </tr>
+            <tr>
+                <td>Maximum Serum Creatinine</td>
+                <td><%= stats.max_serum_creatinine ?? 'N/A' %></td> <!-- Display max value -->
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Age Group Statistics Table -->
+    <h2>Statistics by Age Group</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Age Group</th>    <!-- Column header for age group -->
+                <th>Total Records</th> <!-- Column header for total records in each group -->
+                <th>Total Deaths</th>  <!-- Column header for total deaths in each group -->
+                <th>Death Rate (%)</th> <!-- Column header for death rate in each group -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the 'groupRates' data and display each group in a table row -->
+            <% if (groupRates && groupRates.length > 0) { %>
+                <% groupRates.forEach(group => { %>
+                    <tr>
+                        <td><%= group.age_group %></td> <!-- Display the age group -->
+                        <td><%= group.total_in_group ?? 'N/A' %></td> <!-- Display total records in group -->
+                        <td><%= group.deaths_in_group ?? 'N/A' %></td> <!-- Display total deaths in group -->
+                        <td>
+                            <!-- Display the death rate for the group as a percentage, or 'N/A' if invalid -->
+                            <%= (typeof group.death_rate === 'number' && !isNaN(group.death_rate)) 
+                                ? (group.death_rate * 100).toFixed(2) + '%' 
+                                : 'N/A' %>
+                        </td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <!-- If no data is available, display a message -->
+                <tr>
+                    <td colspan="4">No data available</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>

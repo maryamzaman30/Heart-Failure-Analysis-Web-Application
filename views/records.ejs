@@ -1,0 +1,45 @@
+<!-- views/records.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Records</h1>
+
+    <!-- Brief description of what the page shows -->
+    <p>A list of all patient records with key health indicators, such as age, anaemia, diabetes, blood pressure and death event status.</p>
+
+    <ul class="back-button">
+        <li><a href="/">← Back</a></li>
+    </ul>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Age</th>
+                <th>Anaemia</th>
+                <th>Diabetes</th>
+                <th>High BP</th>
+                <th>Death Event</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% records.forEach(record => { %>
+                <tr>
+                    <td><%= record.id %></td>
+                    <td><%= record.age %></td>
+                    <td><%= record.anaemia %></td>
+                    <td><%= record.diabetes %></td>
+                    <td><%= record.high_blood_pressure %></td>
+                    <td><%= record.death_event %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

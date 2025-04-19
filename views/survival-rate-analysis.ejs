@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Loads the Plotly library for creating interactive charts -->
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+</head>
+<body>
+    <h1><%= title %> </h1>
+
+    <!-- Brief description of the page -->
+    <p>A pie chart showing the survival rates based on the selected feature (such as gender, smoking status or age group).</p>
+
+    <ul class="back-button">
+        <li><a href="/">← Back</a></li>
+    </ul>
+    
+     <!-- A container for the dropdown and button -->
+     <div class="container">
+        <!-- Label and Dropdown to select the feature for survival rate analysis -->
+        <label for="feature">Select Feature for Survival Rate Analysis:</label>
+        <select id="feature">
+            <!-- Dropdown options for selecting the feature -->
+            <option value="sex">Gender</option>
+            <option value="smoking">Smoking Status</option>
+            <option value="age_groups">Age Groups</option>
+        </select>
+        
+        <!-- Button that triggers the fetchData function to generate the pie chart -->
+        <button onclick="fetchData()">Generate PieChart</button>
+    </div>
+    
+    <!-- Creates a canvas element where the chart will be rendered; sets its width, height, display & margin -->
+    <div id="pieChart" style="width:700px;height:500px;display:block;margin: 0 auto;"></div>
+    
+    <!-- Links to the external JavaScript file to add functionality and handle the chart rendering -->
+    <script src="/scripts/charts.js"></script>
+</body>
+</html>

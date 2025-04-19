@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Loads the Chart.js library from a CDN to create charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <!-- Brief description of the page -->
+    <p>A scatter plot of serum creatinine vs. ejection fraction, illustrating their relationship.</p>
+    
+    <ul class="back-button">
+        <li><a href="/">← Back</a></li>
+    </ul>
+    
+    <!-- Creates a canvas element where the chart will be rendered; sets its width & height -->
+    <canvas id="scatterPlot" width="295" height="105"></canvas>
+    
+    <!-- Links to the external JavaScript file to add functionality and handle the chart rendering -->
+    <script src="/scripts/charts.js"></script>
+</body>
+</html>

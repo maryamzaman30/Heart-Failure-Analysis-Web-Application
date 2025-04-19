@@ -1,0 +1,151 @@
+/* public/style.css */
+
+/* Base settings ------------------------------------------------------------------------------ */
+body 
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    margin: 0; /* Removes default margin around the body */
+    padding: 0; /* Removes default padding around the body */
+    background-color: #f0f4f8; /* Sets a light background color */
+    color: black; /* Sets the default text color */
+}
+
+/* Headings (h1 & h2) & p texts ------------------------------------------------------------------------*/
+/* Styling for h1 */
+ h1 
+{
+    font-size: 36px; 
+    text-align: center;
+    margin-top: 40px; /* Adds space above the heading */
+    text-transform: uppercase; /* Makes the text uppercase */
+}
+
+h2, p
+{
+    text-align: center;
+}
+
+/* Navbar Links -------------------------------------------------------------------------------- */
+/* Styling for the navigation menu (ul) */
+nav ul 
+{
+    list-style: none; /* Removes the default list bullets */
+    display: flex; /* Uses a flexible layout for list items */
+    justify-content: center;
+    gap: 20px; /* Adds space between the list items */
+    padding: 10px 0; /* Adds padding above & below the navigation items */
+}
+
+/* Styling for each list item in the navigation menu */
+nav ul li 
+{
+    text-decoration: none; /* Removes the default text decoration (underline) */
+}
+
+/* Styling for the anchor tags inside the list items */
+nav ul li a 
+{
+    border: solid 1px black;
+    padding: 13px;
+    color: darkblue;
+    text-decoration: none; /* Removes underline from links */
+}
+
+/* Styling for the links when hovered */
+nav ul li a:hover 
+{
+    background-color: #f1c40f;
+    color: white; /* Changes the link color to white on hover */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adds a smooth transition effect for background color change */
+}
+
+/* Back Button ------------------------------------------------------------------------------------ */
+/* Style the back button to be at the top left corner */
+.back-button 
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 5px;
+    padding: 0; /* Remove default padding */
+}
+
+.back-button li 
+{
+    list-style-type: none; /* Remove bullet points */
+}
+
+.back-button a 
+{
+    text-decoration: none; /* Remove underline */
+    font-size: 16px;
+    color: black; 
+}
+
+.back-button a:hover 
+{
+    color: red; /*Change color to red when hovered*/
+}
+
+/* Table for Records ------------------------------------------------------------------------------ */
+/* Styling for the table element */
+table 
+{
+    margin: 40px auto; /* Adds space above and below the table & centers it */
+    border-collapse: collapse; /* Ensures table borders collapse into a single line */
+    width: 85%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow around the table */
+}
+
+/* Styling for table headers and data cells */
+table th, table td 
+{
+    border: 1px solid #ddd; /* Adds a light gray border to both headers and cells */
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Styling for table headers */
+table th 
+{
+    background-color: darkblue;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Adds spacing between letters in table headers */
+}
+
+/* Styling for table data cells */
+table td 
+{
+    background-color: #ecf0f1; /* Sets a light gray background color for table cells */
+}
+
+/* Styling for even-numbered rows in the table */
+table tr:nth-child(even) td 
+{
+    background-color: #f9f9f9; /* Sets a lighter background color for even rows */
+}
+
+/* Styling for rows when hovered */
+table tr:hover td 
+{
+    background-color: #f1c40f; /* Changes the background color to yellow on hover */
+    color: white; /* Changes the text color to white on hover */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Adds a smooth transition effect for background color change */
+}
+
+/* Ensuring consistent font styling for table headers and data cells */
+table td, table th 
+{
+    font-family: 'Arial', sans-serif; 
+    font-weight: 400; /* Sets the font weight to normal for consistency */
+}
+
+/* Piechart & Line Graph --------------------------------------------------------------------------- */
+.container
+{
+    text-align: center; /*Centers the texts, dropdown & button*/    
+}
