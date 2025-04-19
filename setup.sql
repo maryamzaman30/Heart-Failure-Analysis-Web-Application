@@ -19,7 +19,7 @@ CREATE TABLE records (
     death_event BOOLEAN
 );
 
-LOAD DATA INFILE '/var/lib/mysql-files/heart_failure_clinical_records_dataset.csv'
+LOAD DATA INFILE 'heart_failure_clinical_records_dataset.csv'
 INTO TABLE records
 FIELDS TERMINATED BY ',' 
 LINES TERMINATED BY '\n'
