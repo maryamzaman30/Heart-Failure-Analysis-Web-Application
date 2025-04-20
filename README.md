@@ -6,7 +6,7 @@ Dataset used - https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+re
 
 ## Description
 
-This web application is designed to analyze heart failure clinical records. It provides various functionalities, including:
+This web application midterm is designed to analyze heart failure clinical records. It provides various functionalities, including:
 
 - Viewing all records of heart failure patients.
 - Analyzing causes of death based on binary features (e.g., anaemia, diabetes, etc.).
