@@ -2,6 +2,8 @@
 
 Link to demo - https://youtu.be/a-J5SkH8j-Y
 
+Dataset used - https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records
+
 ## Description
 
 This web application is designed to analyze heart failure clinical records. It provides various functionalities, including:
