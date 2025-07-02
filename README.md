@@ -2,7 +2,7 @@
 
 Link to demo - https://youtu.be/a-J5SkH8j-Y
 
-Dataset used - https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records
+Dataset used (Link) - https://archive.ics.uci.edu/dataset/519/heart+failure+clinical+records
 
 ## Description
 
